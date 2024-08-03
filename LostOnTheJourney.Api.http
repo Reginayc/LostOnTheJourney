@@ -1,0 +1,6 @@
+@LostOnTheJourney.Api_HostAddress = http://localhost:5211
+
+GET {{LostOnTheJourney.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

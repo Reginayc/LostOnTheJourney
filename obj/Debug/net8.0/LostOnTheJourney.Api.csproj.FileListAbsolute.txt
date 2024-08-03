@@ -1,0 +1,7 @@
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.csproj.AssemblyReference.cache
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.AssemblyInfoInputs.cache
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.AssemblyInfo.cs
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.csproj.CoreCompileInputs.cache
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Regina\OneDrive\Desktop\LostOnTheJourney.Api\obj\Debug\net8.0\LostOnTheJourney.Api.MvcApplicationPartsAssemblyInfo.cache
