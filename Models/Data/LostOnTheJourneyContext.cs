@@ -1,15 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using LOSTONTHEJOURNEY.API.Models;
+using LOSTONTHEJOURNEY.Models;
 
-namespace LOSTONTHEJOURNEY.API.Data
+namespace LOSTONTHEJOURNEY.Models.Data
 {
     public class LostOnTheJourneyContext : DbContext
     {
         public LostOnTheJourneyContext(DbContextOptions<LostOnTheJourneyContext> options)
             : base(options)
         {
+            Movies = Set<Movie>(); // Initialize the DbSet
         }
 
-        public DbSet<Movie>? Movies { get; set; }
+        public DbSet<Movie> Movies { get; set; }
     }
 }

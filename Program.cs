@@ -1,21 +1,15 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using LOSTONTHEJOURNEY.API.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models; // Add this directive for Swagger
+using LOSTONTHEJOURNEY.Models.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
 builder.Services.AddDbContext<LostOnTheJourneyContext>(options =>
-    options.UseInMemoryDatabase("LostOnTheJourneyDB"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Lost On The Journey API", Version = "v1" });
-});
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -23,13 +17,9 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Lost On The Journey API v1"));
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
