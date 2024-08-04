@@ -2349,11 +2349,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Regina\\OneDrive\\Desktop\\LostOnTheJourney.Api\\LostOnTheJourney.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Regina\\repo\\LostOnTheJourney.Api\\LostOnTheJourney.Api.csproj",
       "projectName": "LostOnTheJourney.Api",
-      "projectPath": "C:\\Users\\Regina\\OneDrive\\Desktop\\LostOnTheJourney.Api\\LostOnTheJourney.Api.csproj",
+      "projectPath": "C:\\Users\\Regina\\repo\\LostOnTheJourney.Api\\LostOnTheJourney.Api.csproj",
       "packagesPath": "C:\\Users\\Regina\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Regina\\OneDrive\\Desktop\\LostOnTheJourney.Api\\obj\\",
+      "outputPath": "C:\\Users\\Regina\\repo\\LostOnTheJourney.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -9,13 +9,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // builder.Services.AddDbContext<LostOnTheJourneyContext>(options =>
-//     options.UseSqlServer(builder.Configuration.GetConnectionString()));
+//     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "LOST ON THE JOURNEY API", Version = "v1" });
+});
+
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost3000",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
 });
 
 var app = builder.Build();
@@ -29,6 +41,8 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "LOST ON THE JOURNEY API v1");
     });
 }
+
+app.UseCors("AllowLocalhost3000");
 
 app.UseAuthorization();
 
