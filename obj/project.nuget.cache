@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "LwPPo7pOz9u6iK/t/axK3wMYxlecrhyRHMsEB8nZhYvlzzNXVKzqlaDHAqX4lKAAFspXZ4B5Mmt4W3SLxMJozg==",
-  "success": true,
+  "dgSpecHash": "UprqVppTaI+LdCR6RacMzaMWD5K6P4IX6KsE2lww6J+p1rstR0JN/cVt5l6+yChB+Z1hk1KHz+bBJsnBmKNiVA==",
+  "success": false,
   "projectFilePath": "C:\\Users\\Regina\\repo\\LostOnTheJourney.Api\\LostOnTheJourney.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -10,6 +10,7 @@
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
+    "C:\\Users\\Regina\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.16\\microsoft.entityframeworkcore.inmemory.6.0.16.nupkg.sha512",
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.0\\microsoft.entityframeworkcore.relational.6.0.0.nupkg.sha512",
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.0\\microsoft.entityframeworkcore.sqlserver.6.0.0.nupkg.sha512",
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
@@ -55,5 +56,15 @@
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.29\\microsoft.aspnetcore.app.ref.6.0.29.nupkg.sha512",
     "C:\\Users\\Regina\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.29\\microsoft.netcore.app.host.win-x64.6.0.29.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Microsoft.EntityFrameworkCore from 6.0.16 to 6.0.0. Reference the package directly from the project to select a different version. \r\n LostOnTheJourney.Api -> Microsoft.EntityFrameworkCore.InMemory 6.0.16 -> Microsoft.EntityFrameworkCore (>= 6.0.16) \r\n LostOnTheJourney.Api -> Microsoft.EntityFrameworkCore (>= 6.0.0)",
+      "libraryId": "Microsoft.EntityFrameworkCore",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

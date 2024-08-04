@@ -1,7 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using LOSTONTHEJOURNEY.Models;
-using System.Collections.Generic;
+using LOSTONTHEJOURNEY.Models.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace LOSTONTHEJOURNEY.Controllers
 {
@@ -9,22 +13,23 @@ namespace LOSTONTHEJOURNEY.Controllers
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        private static readonly List<Movie> Movies = new List<Movie>
+        private readonly LostOnTheJourneyContext _context;
+
+        public MoviesController(LostOnTheJourneyContext context)
         {
-            new Movie { Id = 1, Title = "Lost on Journey", Description = "Lost on Journey is a 2010 Chinese comedy film directed by Raymond Yip and starring Xu Zheng and Wang Baoqiang. This film depicts an amusing yet realistic portrayal of the issues prevalent in the Chinese society, especially during the chaotic Chunyun when everyone wants to reunite with their family for the Chinese New Year celebrations.", Slug = "lost-on-journey" }
-            // Add more movies as needed
-        };
+            _context = context;
+        }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Movie>> GetMovies()
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMovies()
         {
-            return Movies;
+            return await _context.Movies.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Movie> GetMovie(int id)
+        public async Task<ActionResult<Movie>> GetMovie(int id)
         {
-            var movie = Movies.FirstOrDefault(m => m.Id == id);
+            var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
                 return NotFound();
@@ -33,18 +38,18 @@ namespace LOSTONTHEJOURNEY.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Movie> AddMovie(Movie movie)
+        public async Task<ActionResult<Movie>> AddMovie(Movie movie)
         {
-            movie.Id = Movies.Any() ? Movies.Max(m => m.Id) + 1 : 1;
             movie.Slug = GenerateSlug(movie.Title);
-            Movies.Add(movie);
+            _context.Movies.Add(movie);
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
         }
 
         [HttpPut("{id}")]
-        public ActionResult UpdateMovie(int id, Movie updatedMovie)
+        public async Task<IActionResult> UpdateMovie(int id, Movie updatedMovie)
         {
-            var movie = Movies.FirstOrDefault(m => m.Id == id);
+            var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
                 return NotFound();
@@ -54,27 +59,32 @@ namespace LOSTONTHEJOURNEY.Controllers
             movie.Description = updatedMovie.Description;
             movie.Slug = GenerateSlug(updatedMovie.Title);
 
+            _context.Entry(movie).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteMovie(int id)
+        public async Task<IActionResult> DeleteMovie(int id)
         {
-            var movie = Movies.FirstOrDefault(m => m.Id == id);
+            var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
                 return NotFound();
             }
 
-            Movies.Remove(movie);
+            _context.Movies.Remove(movie);
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
         private string GenerateSlug(string title)
         {
             string str = title.ToLower();
-            str = System.Text.RegularExpressions.Regex.Replace(str, @"\s+", "-"); // Replace spaces with hyphens
-            str = System.Text.RegularExpressions.Regex.Replace(str, @"[^a-z0-9\-]", ""); // Remove invalid characters
+            str = Regex.Replace(str, @"\s+", "-"); // Replace spaces with hyphens
+            str = Regex.Replace(str, @"[^a-z0-9\-]", ""); // Remove invalid characters
             return str;
         }
     }
