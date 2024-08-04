@@ -1,0 +1,170 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono Auto Generated)
+mono_crash.*
+
+# OS-generated files #
+######################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+
+# DotNet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Build directories
+bin/
+obj/
+
+# Enable "dotnet watch" command for .NET Core
+*.hotreload
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+*.temp
+*.tmp
+
+# Files built by Visual Studio
+*.obj
+*.exe
+*.pdb
+*.dll
+*.cache
+*.ilk
+*.log
+*.lib
+*.nupkg
+*.snk
+*.swp
+*.bak
+*.msi
+*.docstates
+~$*
+*.vspx
+*.vcxproj.user
+*.vcxproj.filters
+*.pidb
+
+# IDE-specific files
+.idea/
+.vscode/
+.vs/
+*.suo
+*.user
+*.rsuser
+*.csproj.user
+*.sln.docstates
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+.idea/*
+.idea/.idea/
+.idea/.idea/*
+
+# Rider-Plugin-specific files
+.idea/**/storage_v2
+.idea_modules/
+.idea/.name
+.idea/.modules
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+generated/
+
+# Packages
+*.nupkg
+# The packages folder can be ignored because of NuGet restore
+**/[Pp]ackages/*
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
+# Uncomment if necessary however generally it will be restored before build
+#!**/[Pp]ackages/repositories.config
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+*.temp
+*.tmp
+
+# Web projects
+project.lock.json
+project.fragment.lock.json
+artifacts/
+generated/
+bin/
+obj/
+
+# Publish Web Output
+publish/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Auto-generated AssemblyInfo.cs file by Visual Studio
+Properties/AssemblyInfo.cs
+
+# Logs
+*.log
+
+# Crash Reports
+*.crash
+
+# Debug
+debug/
+
+# Release
+release/
+
+# Backup & report files
+*.bak
+*.md5
+*.sha
+
+# Coverage files
+coverage/
+lcov-report/
