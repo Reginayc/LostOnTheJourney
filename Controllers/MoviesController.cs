@@ -31,5 +31,27 @@ namespace LOSTONTHEJOURNEY.Controllers
             }
             return movie;
         }
+
+        [HttpPost]
+        public ActionResult<Movie> AddMovie(Movie movie)
+        {
+            movie.Id = Movies.Max(m => m.Id) + 1;
+            Movies.Add(movie);
+            return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult DeleteMovie(int id)
+        {
+            var movie = Movies.FirstOrDefault(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            Movies.Remove(movie);
+            return NoContent();
+        }
     }
 }
+

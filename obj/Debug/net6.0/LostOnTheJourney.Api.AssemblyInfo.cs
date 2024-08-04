@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LostOnTheJourney.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b39b57f73564a794ad11c72a24d294d90904cc1b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fecc194af3417f9370a9ca5bfcd01eca45d1bc3")]
 [assembly: System.Reflection.AssemblyProductAttribute("LostOnTheJourney.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LostOnTheJourney.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
