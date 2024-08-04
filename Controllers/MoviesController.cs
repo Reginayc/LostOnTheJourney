@@ -40,6 +40,21 @@ namespace LOSTONTHEJOURNEY.Controllers
             return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
         }
 
+        [HttpPut("{id}")]
+        public ActionResult UpdateMovie(int id, Movie updatedMovie)
+        {
+            var movie = Movies.FirstOrDefault(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+
+            movie.Title = updatedMovie.Title;
+            movie.Description = updatedMovie.Description;
+
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public ActionResult DeleteMovie(int id)
         {
