@@ -2,10 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LOSTONTHEJOURNEY.Models;
 using LOSTONTHEJOURNEY.Models.Data;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 
 namespace LOSTONTHEJOURNEY.Controllers
 {
@@ -40,7 +36,6 @@ namespace LOSTONTHEJOURNEY.Controllers
         [HttpPost]
         public async Task<ActionResult<Movie>> AddMovie(Movie movie)
         {
-            movie.Slug = GenerateSlug(movie.Title);
             _context.Movies.Add(movie);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
@@ -57,7 +52,6 @@ namespace LOSTONTHEJOURNEY.Controllers
 
             movie.Title = updatedMovie.Title;
             movie.Description = updatedMovie.Description;
-            movie.Slug = GenerateSlug(updatedMovie.Title);
 
             _context.Entry(movie).State = EntityState.Modified;
             await _context.SaveChangesAsync();
@@ -78,14 +72,6 @@ namespace LOSTONTHEJOURNEY.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
-        }
-
-        private string GenerateSlug(string title)
-        {
-            string str = title.ToLower();
-            str = Regex.Replace(str, @"\s+", "-"); // Replace spaces with hyphens
-            str = Regex.Replace(str, @"[^a-z0-9\-]", ""); // Remove invalid characters
-            return str;
         }
     }
 }
